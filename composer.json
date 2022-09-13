@@ -1,0 +1,24 @@
+{
+    "name": "mdabagh/smschannels",
+    "description": "sms channels",
+    "authors": [
+        {
+            "name": "mohamadsajad dabbagh"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mdabagh\\Smschannels\\" : "src/"
+        }
+    },
+    "require": {
+       
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mdabagh\\Smschannels\\SmsChannelsServiceProvider"
+            ]
+        }
+    }
+}
