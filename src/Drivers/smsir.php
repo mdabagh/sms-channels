@@ -1,8 +1,7 @@
 <?php
+namespace Mdabagh\Smschannels\Drivers;
 
-namespace App\Strategy\SmsChannels\Drivers;
-use App\Strategy\SmsChannels\SmsChannelsInterface;
-
+use Mdabagh\Smschannels\SmsChannelsInterface;
 
 class Smsir implements SmsChannelsInterface
 {

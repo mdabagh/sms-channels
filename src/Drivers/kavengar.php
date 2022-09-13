@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Strategy\SmsChannels\Drivers;
-use App\Strategy\SmsChannels\SmsChannelsInterface;
+namespace Mdabagh\Smschannels\Drivers;
+
+use Mdabagh\Smschannels\SmsChannelsInterface;
 
 
 class kavengar implements SmsChannelsInterface

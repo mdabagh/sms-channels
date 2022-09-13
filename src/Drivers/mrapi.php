@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Strategy\SmsChannels\Drivers;
+namespace Mdabagh\Smschannels\Drivers;
+
+use Mdabagh\Smschannels\SmsChannelsInterface;
 
 use App\Models\User;
-use App\Strategy\SmsChannels\SmsChannelsInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
