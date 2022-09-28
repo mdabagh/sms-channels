@@ -8,7 +8,7 @@ class SmsChannelsServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind('SmsChannelsInterface', function() {
+        $this->app->bind(SmsChannelsInterface::class, function() {
             return new kavengar;  //return new Smsir;
         });
 
