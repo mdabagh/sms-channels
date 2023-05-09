@@ -1,30 +1,40 @@
-## Channels for sms
+# SMS Channels Package
 
-You can add more messenger servers by using the design pattern strategy, this is necessary for emergency situations when one of the servers fails.
-List of servers added so far:
+The SMS Channels package provides an easy way to send SMS messages using multiple channels such as Kavenegar, Sms.ir, and others. With this package, you can easily send your SMS messages through different channels.
 
-- sms.ir.
-- kavenegar.ir.
+## Installation
 
-Things to add in the future:
+You can install the package via Composer using the following command:
 
-- Email.
-- Direct use of a service in the controller.
+```bash
+composer require mdabagh/smschannels
+```
 
-Please help develop this repository.
+## Usage
 
-## کانالبندی اس ام اس
+To use the package in your controller, you can use the `Sms` facade. First, you need to add the following `use` statement to your controller:
 
-با استفاده از دیزاین پترین استراتژی می توانید سرورهای پیامرسان بیشتری اضافه کنید،این کار برای شرایط اضطراری که سروری از کار می افتد لازم است.
-لیست سرورهای اضافه شده تاکنون:
+```php
+use Mdabagh\Smschannels\Facades\Sms;
+```
 
-- sms.ir.
-- kavenegar.ir.
+After that, you can use the `sendVerifyCode()` and `checkVerifyCode()` methods provided by the `Sms` facade to send and verify SMS verification codes. For example:
 
-مواردی که بهتره در آینده اضافه کنیم:
+```php
+$phone = '09123456789';
+$code = Sms::sendVerifyCode($phone);
+// Save $code to verify the code later
 
-- ایمیل.
-- استفاده مستقیم از یک سرویس در کنترلر
- 
-لطفا به توسعه این مخزن کمک کنید.
+// When verifying the code
+$key = '1234'; // The code entered by the user
+$isValid = Sms::checkVerifyCode($phone, $key);
+if ($isValid) {
+    // The verification code is correct
+} else {
+    // The verification code is incorrect
+}
+```
 
+## License
+
+The SMS Channels package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
