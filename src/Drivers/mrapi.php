@@ -13,12 +13,12 @@ class Mrapi implements SmsChannelsInterface
     public function sendVerifyCode($phone)
     {
         $response = Http::withHeaders([
-            'Authentication' => env('AUTHENTICATION_MRAPI'),
+            'Authentication' => config('sms.mrapi.authentication'),
             'Content-Type' => 'application/json'
-        ])->post('http://api.mrapi.ir/V2/sms/send', [
+        ])->post(config('sms.mrapi.url') .'/'. config('sms.mrapi.method_send'), [
             "PhoneNumber" => $phone ,
-            "PatternID" => env('PATTERNID_MRAPI'),
-            "Token" =>  env('TOKEN_MRAPI'),
+            "PatternID" => config('sms.mrapi.patternid'),
+            "Token" =>  config('sms.mrapi.token'),
             "ProjectType" => 1
         ]);
         $body = json_decode($response->body());
@@ -32,7 +32,7 @@ class Mrapi implements SmsChannelsInterface
         $response = Http::withHeaders([
             'Authentication' => env('AUTHENTICATION_MRAPI'),
             'Content-Type' => 'application/json'
-        ])->post('http://api.mrapi.ir/V2/sms/verify', [
+        ])->post(config('sms.mrapi.url') .'/'. config('sms.mrapi.method_verify'), [
             "PhoneNumber" => $phone ,
             "Code" => $key  ,
         ]);
