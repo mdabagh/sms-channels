@@ -10,6 +10,19 @@ You can install the package via Composer using the following command:
 composer require mdabagh/smschannels
 ```
 
+## Configuration
+
+In your `.env` file, you can define the active driver and the settings and keys for each driver. The `MSM_DRIVE_ACTIVE` variable specifies the default driver to use.
+
+```
+MSM_DRIVE_ACTIVE=mrapi
+
+# mrapi driver
+MRAPI_AUTHENTICATION=
+MRAPI_TOKEN=
+MRAPI_PATTERNID=
+```
+
 ## Usage
 
 To use the package in your controller, you can use the `Sms` facade. First, you need to add the following `use` statement to your controller:
