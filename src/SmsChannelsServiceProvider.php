@@ -10,12 +10,15 @@ class SmsChannelsServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(SmsChannelsInterface::class, function() {
+        $this->app->bind('SmsChannelsInterface', function () {
             return new kavengar;  //return new Smsir;
+        });
+        $this->app->bind('Sms', function () {
+            return new Sms;
         });
     }
     
     public function boot(){
-        $this->app->register(Sms::class);
+
     }
 }
