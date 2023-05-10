@@ -4,8 +4,8 @@ namespace Mdabagh\Smschannels;
 
 use Illuminate\Support\ServiceProvider;
 use Mdabagh\Smschannels\Drivers\kavengar;
-use Mdabagh\Smschannels\Drivers\kavengar;
-use Mdabagh\Smschannels\Drivers\kavengar;
+use Mdabagh\Smschannels\Drivers\Mrapi;
+use Mdabagh\Smschannels\Drivers\Smsir;
 
 use Mdabagh\Smschannels\Facades\Sms;
 
