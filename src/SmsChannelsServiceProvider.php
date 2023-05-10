@@ -4,6 +4,7 @@ namespace Mdabagh\Smschannels;
 
 use Illuminate\Support\ServiceProvider;
 use Mdabagh\Smschannels\Drivers\kavengar;
+use Mdabagh\Smschannels\Facades\Sms;
 
 class SmsChannelsServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,6 @@ class SmsChannelsServiceProvider extends ServiceProvider
     }
     
     public function boot(){
-        
+        $this->app->register(Sms::class);
     }
 }
