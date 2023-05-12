@@ -7,6 +7,10 @@ use Mdabagh\Smschannels\SmsChannelsInterface;
 
 class kavengar implements SmsChannelsInterface
 {
+    public function sendSms($phone , $message , $sender){
+        return ['kavengar'];
+    }
+
     public function sendVerifyCode($phone)
     {
         $url = "https://api.kavenegar.com/v1/" . config('sms.kavenegar.api_key') . "/verify/lookup.json";

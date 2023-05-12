@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Http;
 
 class Mrapi implements SmsChannelsInterface
 {
+    public function sendSms($phone , $message , $sender){
+        return ['Mrapi'];
+    }
     public function sendVerifyCode($phone)
     {
         $response = Http::withHeaders([
