@@ -40,8 +40,9 @@ $code = Sms::sendVerifyCode($phone);
 
 // When verifying the code
 $key = '1234'; // The code entered by the user
-$isValid = Sms::checkVerifyCode($phone, $key);
-if ($isValid) {
+$result = Sms::checkVerifyCode($phone, $key);
+if ($result->status) {
+    $body = $result->body;
     // The verification code is correct
 } else {
     // The verification code is incorrect
