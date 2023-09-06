@@ -20,7 +20,7 @@ class SmsChannelsServiceProvider extends ServiceProvider
         $this->app->bind('Sms', function () {
             return new Sms;
         });
-        $this->mergeConfigFrom(__DIR__.'/../config/sms.php', 'sms');
+        $this->mergeConfigFrom(__DIR__.'/config/sms.php', 'sms');
 
     }
     
