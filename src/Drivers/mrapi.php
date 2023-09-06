@@ -29,7 +29,7 @@ class Mrapi implements SmsChannelsInterface
      * @param string $phone شماره تلفن دریافت کننده کد تایید
      * @return mixed آرایه حاوی اطلاعات پیامک ارسال شده، یا false در صورت بروز خطا
      */
-    public function sendVerifyCode($phone)
+    public function sendVerifyCode($phone , $token = null)
     {
         $response = Http::withHeaders([
             'Authentication' => config('sms.mrapi.authentication'),

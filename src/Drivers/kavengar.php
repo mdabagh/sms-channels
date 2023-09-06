@@ -50,12 +50,12 @@ class Kavengar implements SmsChannelsInterface
      * @param string $phone شماره تلفن دریافت کننده کد تایید
      * @return mixed آرایه حاوی اطلاعات پیامک ارسال شده، یا false در صورت بروز خطا
      */
-    public function sendVerifyCode($phone)
+    public function sendVerifyCode($phone,$token = null)
     {
         $url = "https://api.kavenegar.com/v1/" . config('sms.kavenegar.api_key') . "/verify/lookup.json";
         $params = [
             'receptor' => $phone,
-            'token' => config('sms.kavenegar.token'),
+            'token' => $token,
             'template' => config('sms.kavenegar.template'),
             'type' => 'sms'
         ];
@@ -72,14 +72,19 @@ class Kavengar implements SmsChannelsInterface
         ])->get($url, $params);
 
         $body = $response->json();
+        // dd($body);
         if ($body['return']['status'] == 200) {
             $result = [
-                'status' => $body->{"IsSuccess"},
+                'status' => $body['return']['status'],
                 'body' => $body['entries'][0]
             ];
             return $result;
         } else {
-            return false;
+            $result = [
+                'status' => $body['return']['status'],
+                'message' => $body['return']['message']
+            ];
+            return $result;
         }
     }
 
