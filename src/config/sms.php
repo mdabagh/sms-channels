@@ -11,9 +11,7 @@ return [
 
     'kavenegar' => [
         'api_key' => env('KAVENEGAR_API_KEY'),
-        'token' => env('KAVENEGAR_TOKEN', null),
-        'token2' => env('KAVENEGAR_TOKEN2', null),
-        'token3' => env('KAVENEGAR_TOKEN3', null),
+        'template' => env('KAVENEGAR_TEMPLATE'),
     ]
 
 

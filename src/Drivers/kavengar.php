@@ -59,12 +59,7 @@ class Kavengar implements SmsChannelsInterface
             'template' => config('sms.kavenegar.template'),
             'type' => 'sms'
         ];
-        if (config('sms.kavenegar.token2')) {
-            $params['token2'] = config('sms.kavenegar.token2');
-        }
-        if (config('sms.kavenegar.token3')) {
-            $params['token3'] = config('sms.kavenegar.token3');
-        }
+        
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/x-www-form-urlencoded',
