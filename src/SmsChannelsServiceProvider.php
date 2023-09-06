@@ -15,7 +15,8 @@ class SmsChannelsServiceProvider extends ServiceProvider
     {
         $this->app->bind('SmsChannelsInterface', function () {
             $driverActive = config('sms.driver_active');
-            return new $driverActive;  //return new Smsir;
+            $driverClass = "Mdabagh\\Smschannels\\Drivers\\$driverActive";
+            return new $driverClass;
         });
         $this->app->bind('Sms', function () {
             return new Sms;
